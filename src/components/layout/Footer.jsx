@@ -33,7 +33,7 @@ export default function Footer() {
                 <Mail className="h-4 w-4" /> hello@nyayapath.in
               </a>
               <p className="inline-flex items-center gap-2">
-                <MapPin className="h-4 w-4" /> Lucknow, India
+                <MapPin className="h-4 w-4" /> Bengaluru, India
               </p>
             </div>
 

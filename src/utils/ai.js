@@ -2,8 +2,8 @@
  * Frontend API helper.
  *
  * The frontend NEVER touches the API key or calls Google directly.
- * It only talks to our own backend proxy at /api/gemini, which is
- * forwarded to http://localhost:3001 by Vite's dev-server proxy.
+ * It talks to the deployed backend proxy at:
+ * https://nyay-dost.onrender.com/api/gemini
  *
  * The backend uses the official Google Gemini SDK and reads the key
  * from the GEMINI_API_KEY environment variable. If Google returns an
@@ -11,7 +11,7 @@
  */
 
 export async function analyzeLegalProblem(formData) {
-  const response = await fetch('/api/gemini', {
+  const response = await fetch('https://nyay-dost.onrender.com/api/gemini', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(formData),

@@ -11,8 +11,8 @@ import { staggerContainer, fadeUp, viewportOnce } from '../utils/motion'
 
 const contactInfo = [
   { icon: Mail, label: 'Email', value: 'hello@nyayapath.in', href: 'mailto:hello@nyayapath.in' },
-  { icon: Phone, label: 'Phone', value: '8869999520', href: 'tel:8869999520' },
-  { icon: MapPin, label: 'Office', value: 'Lucknow, India', href: null },
+  { icon: Phone, label: 'Phone', value: '+91 80 0000 0000', href: 'tel:+918000000000' },
+  { icon: MapPin, label: 'Office', value: 'Bengaluru, India', href: null },
   { icon: Clock, label: 'Hours', value: 'Mon–Fri, 10am–6pm IST', href: null },
 ]
 
@@ -127,7 +127,7 @@ export default function Contact() {
                   <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-brand-600 text-white shadow-glow">
                     <MapPin className="h-6 w-6" />
                   </span>
-                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-200">Lucknow, India</p>
+                  < risen className="text-sm font-semibold text-slate-700 dark:text-slate-200">Bengaluru, India</p>
                   <p className="text-xs text-slate-500 dark:text-slate-400">Map preview placeholder</p>
                 </div>
               </motion.div>
