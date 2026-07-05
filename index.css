@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Base layer — design tokens, typography, global resets
+   ============================================================ */
+@layer base {
+  :root {
+    --bg: 248 250 252; /* slate-50 */
+    --fg: 15 23 42; /* slate-900 */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+    overflow-x: hidden;
+  }
+
+  .dark body {
+    @apply bg-slate-950 text-slate-100;
+  }
+
+  /* Consistent heading typography */
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+
+  /* Accessible focus rings */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-500/60 ring-offset-2 ring-offset-white;
+  }
+  .dark *:focus-visible {
+    @apply ring-offset-slate-950;
+  }
+
+  /* Refined custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300/70 rounded-full border-2 border-solid border-transparent bg-clip-content;
+  }
+  .dark ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700/70;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400/70;
+  }
+}
+
+/* ============================================================
+   Components layer — reusable utility classes
+   ============================================================ */
+@layer components {
+  /* Max-width page container */
+  .container-px {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Gradient brand text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-600 via-violet-600 to-accent-600;
+  }
+  .dark .text-gradient {
+    @apply from-brand-400 via-violet-400 to-accent-400;
+  }
+
+  /* Glassmorphism surface */
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-slate-200/70;
+  }
+  .dark .glass {
+    @apply bg-slate-900/60 border-slate-700/60 backdrop-blur-xl;
+  }
+
+  /* Animated gradient border wrapper */
+  .gradient-border {
+    @apply relative rounded-3xl p-[1px] bg-gradient-to-br from-brand-500/40 via-violet-500/30 to-accent-500/40;
+  }
+
+  /* Section eyebrow label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-200/70 bg-brand-50/80 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-brand-700;
+  }
+  .dark .eyebrow {
+    @apply border-brand-500/30 bg-brand-500/10 text-brand-300;
+  }
+}
+
+/* ============================================================
+   Utilities layer
+   ============================================================ */
+@layer utilities {
+  /* Subtle dotted/grid background pattern */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Animated gradient text shimmer */
+  .text-shimmer {
+    background-size: 200% auto;
+    animation: gradient-x 6s ease infinite;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
